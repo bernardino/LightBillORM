@@ -4,12 +4,14 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-@Table(name="Plug")
+@Table(name="Plugs")
 public class Plug extends Model {
+	@Column(name="ISA_ID")
+	private int IsaId;
+	@Column(name="TAG_ID")
+	private int TagId;
 	@Column(name="name")
 	private String name;
-	@Column(name="routine")
-	private Routine routine;
 	
 	public Plug() {
 		super();
@@ -23,14 +25,20 @@ public class Plug extends Model {
 		this.name = name;
 	}
 
-	public Routine getRoutine() {
-		return routine;
+	public int getIsaId() {
+		return IsaId;
 	}
 
-	public void setRoutine(Routine routine) {
-		this.routine = routine;
+	public void setIsaId(int isaId) {
+		IsaId = isaId;
 	}
-	
-	
+
+	public int getTagId() {
+		return TagId;
+	}
+
+	public void setTagId(int tagId) {
+		TagId = tagId;
+	}
 
 }

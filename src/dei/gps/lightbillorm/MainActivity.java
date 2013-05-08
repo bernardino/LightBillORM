@@ -15,12 +15,14 @@ import dei.gps.model.Routine;
 
 public class MainActivity extends Activity {
 	Routine r;
+	int cenas=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		getApplicationContext().deleteDatabase("LightBill.db");
+		//getApplicationContext().deleteDatabase("LightBill.db");
+		getApplicationContext().deleteDatabase("LightBill2.db");
 		
 		/* Vai buscar uma rotina, e se nao houver nenhuma cria */
 		r = new Select().from(Routine.class).executeSingle();
@@ -37,18 +39,26 @@ public class MainActivity extends Activity {
 	}
 	
 	public void cenas(View view) {
-		Plug c = new Plug();
-		c.setRoutine(r);
-		c.save();
+		Plug p = new Plug();
+		p.setIsaId(cenas++);
+		p.save();
 		
-		Log.d("CENAS ONCLICK", ""+c.getId());
+		r.addPlug(p);
 		
-		/* Duas maneiras diferentes de ir buscar as plugs associadas a uma rotina */
+		Log.d("CENAS ONCLICK", ""+p.getId());
+		
+		List<Plug> list = r.getPlugs();
+		System.out.println("LIST SIZE: "+list.size());
+		for(Plug pp:list)
+			System.out.println(pp.getIsaId());
+		
+		/* Duas maneiras diferentes de ir buscar as plugs associadas a uma rotina 
 		List<Plug> list = r.getPlugs();
 		for(Plug p:list)
 			Log.d("CENAS ONCLICK", " "+p.getId());
 		list = new Select().from(Plug.class).where("routine = ?",r.getId()).execute();
 		for(Plug p:list)
 			Log.d("CENAS ONCLICK", ""+p.getId());
+		*/
 	}
 }
