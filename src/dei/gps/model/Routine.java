@@ -10,14 +10,14 @@ import com.activeandroid.annotation.Table;
 
 @Table(name="Routines")
 public class Routine extends Model {
-	@Column(name="name")
+	@Column(name="name", unique=true)
 	private String name;
 	@Column(name="description")
 	private String description;
 	@Column(name="startTime")
-	private Date startTime;
+	private long startTime;
 	@Column(name="endTime")
-	private Date endTime;
+	private long endTime;
 	@Column(name="onInterval")
 	private int onInterval;
 	@Column(name="offInterval")
@@ -56,19 +56,19 @@ public class Routine extends Model {
 		this.description = description;
 	}
 	
-	public Date getStartTime() {
+	public long getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(long startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public long getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(long endTime) {
 		this.endTime = endTime;
 	}
 
@@ -120,7 +120,7 @@ public class Routine extends Model {
 		this.repetition = repetition;
 	}
 
-	public void addPlug(Plug p) {
+	public void addPlug(Plug p) throws java.lang.Exception {
 		/* Get all the Plugs of this routine */
 		List<PlugsRoutines> list = getMany(PlugsRoutines.class, "routine");
 		
@@ -147,7 +147,7 @@ public class Routine extends Model {
 		return plugs;
 	}
 	
-	public List<Exception> getExceptions() {
-		return getMany(Exception.class, "routine");
+	public List<RoutineException> getExceptions() {
+		return getMany(RoutineException.class, "routine");
 	}
 }

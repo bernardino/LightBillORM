@@ -1,19 +1,20 @@
 package dei.gps.model;
 
 import java.sql.Date;
+import java.sql.Time;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 @Table(name="Exceptions")
-public class Exception extends Model {
+public class RoutineException extends Model {
 	@Column(name="routine")
 	private Routine routine;
 	@Column(name="startTime")
-	private Date startTime;
+	private Time startTime;
 	@Column(name="endTime")
-	private Date endTime;
+	private Time endTime;
 	@Column(name="date")
 	private Date date;
 	@Column(name="onInterval")
@@ -21,31 +22,31 @@ public class Exception extends Model {
 	@Column(name="offInterval")
 	private int offInterval;
 
-	public Exception() {
+	public RoutineException() {
 		super();
 	}
 	
 	public Routine getRoutine() {
-		return routine;
+		return this.routine;
 	}
 
 	public void setRoutine(Routine routine) {
 		this.routine = routine;
 	}
 
-	public Date getStartTime() {
-		return startTime;
+	public Time getStartTime() {
+		return this.startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(Time startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public Time getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
 
