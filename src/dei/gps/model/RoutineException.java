@@ -7,6 +7,12 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+/**
+ * <b>RoutineException</b> table representation object. This object has its respective Routine object.
+ * 
+ * @author bernardino
+ *
+ */
 @Table(name="Exceptions")
 public class RoutineException extends Model {
 	@Column(name="routine")

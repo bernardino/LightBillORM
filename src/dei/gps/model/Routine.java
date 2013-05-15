@@ -8,6 +8,12 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+/**
+ * <b>Routine</b> table representation object.
+ * 
+ * @author bernardino
+ *
+ */
 @Table(name="Routines")
 public class Routine extends Model {
 	@Column(name="name", unique=true)

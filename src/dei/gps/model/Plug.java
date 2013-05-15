@@ -4,6 +4,12 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+/**
+ * <b>Plug</b> table representation object.
+ * 
+ * @author bernardino
+ *
+ */
 @Table(name="Plugs")
 public class Plug extends Model {
 	@Column(name="name")
