@@ -12,6 +12,8 @@ public class Plug extends Model {
 	private int deviceTypeId;
 	@Column(name="isaId")
 	private int isaId;
+	@Column(name="tagId")
+	private String tagId;
 	@Column(name="isaIndex")
 	private int isaIndex;
 	@Column(name="interval")
@@ -54,12 +56,20 @@ public class Plug extends Model {
 	public void setIsaId(int id) {
 		this.isaId = id;
 	}
+	
+	public String getTagId() {
+		return tagId;
+	}
 
-	public int getIndex() {
+	public void setTagId(String tagId) {
+		this.tagId = tagId;
+	}
+
+	public int getIsaIndex() {
 		return isaIndex;
 	}
 
-	public void setIndex(int index) {
+	public void setIsaIndex(int index) {
 		this.isaIndex = index;
 	}
 
