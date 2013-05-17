@@ -1,6 +1,6 @@
-package dei.gps.utils;
+package pt.uc.dei.gps.lightbill.model.utils;
 
-public class Repetitions {
+public class RepetitionsUtils {
 	public static final int MONDAY=1;
 	public static final int TUESDAY=2;
 	public static final int WEDNESDAY=4;

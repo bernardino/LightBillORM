@@ -4,6 +4,13 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
+import pt.uc.dei.gps.lightbill.dao.RepetitionDAO;
+import pt.uc.dei.gps.lightbill.dao.RoutineDAO;
+import pt.uc.dei.gps.lightbill.model.ModelPlug;
+import pt.uc.dei.gps.lightbill.model.ModelRepetition;
+import pt.uc.dei.gps.lightbill.model.ModelRoutine;
+import pt.uc.dei.gps.lightbill.model.utils.RepetitionsUtils;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,15 +19,9 @@ import android.view.View;
 
 import com.activeandroid.query.Select;
 
-import dei.gps.dao.RepetitionDAO;
-import dei.gps.dao.RoutineDAO;
-import dei.gps.model.Plug;
-import dei.gps.model.Repetition;
-import dei.gps.model.Routine;
-import dei.gps.utils.Repetitions;
 
 public class MainActivity extends Activity {
-	Routine r;
+	ModelRoutine r;
 	int cenas=0;
 
 	@Override
@@ -31,10 +32,10 @@ public class MainActivity extends Activity {
 		getApplicationContext().deleteDatabase("LightBill2.db");
 		
 		/* Vai buscar uma rotina, e se nao houver nenhuma cria */
-		r = new Select().from(Routine.class).executeSingle();
+		r = new Select().from(ModelRoutine.class).executeSingle();
 		if(r==null)
-			r = new Routine();
-		Plug p = new Select().from(Plug.class).where("Id = ?", 3).executeSingle();
+			r = new ModelRoutine();
+		ModelPlug p = new Select().from(ModelPlug.class).where("Id = ?", 3).executeSingle();
 		if(p==null)
 			System.out.println("P NULL");
 		
@@ -49,8 +50,8 @@ public class MainActivity extends Activity {
 		repetitionDAO.getRepetitionByDays(true, false, false, false, false, false, false);
 		repetitionDAO.getRepetitionByDays(true, true, false, false, false, false, false);
 		
-		List<Repetition> list = repetitionDAO.getRepetitionsByWeekDay(Repetitions.MONDAY);
-		for(Repetition r:list)
+		List<ModelRepetition> list = repetitionDAO.getRepetitionsByWeekDay(RepetitionsUtils.MONDAY);
+		for(ModelRepetition r:list)
 			System.out.println(r.getDays());
 		
 	}
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void cenas(View view) {
-		Plug p = new Plug();
+		ModelPlug p = new ModelPlug();
 		p.setIsaId(cenas++);
 		p.save();
 		
@@ -82,9 +83,9 @@ public class MainActivity extends Activity {
 		Log.d("CENAS ONCLICK", ""+p.getId());
 		System.out.println(new java.sql.Time(12, 12, 12).toGMTString()+new Timestamp(r.getStartTime()).toLocaleString()+new Timestamp(2014-1900,4,12,5,12,12,12).toGMTString());
 		
-		List<Plug> list = r.getPlugs();
+		List<ModelPlug> list = r.getPlugs();
 		System.out.println("LIST SIZE: "+list.size());
-		for(Plug pp:list)
+		for(ModelPlug pp:list)
 			System.out.println(pp.getIsaId());
 		
 		/* Duas maneiras diferentes de ir buscar as plugs associadas a uma rotina 

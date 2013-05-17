@@ -1,4 +1,4 @@
-package dei.gps.model;
+package pt.uc.dei.gps.lightbill.model;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
@@ -13,29 +13,29 @@ import com.activeandroid.annotation.Table;
  *
  */
 @Table(name="PlugsRoutines")
-public class PlugsRoutines extends Model {
+public class ModelPlugsRoutines extends Model {
 	@Column(name="plug")
-	private Plug plug;
+	private ModelPlug plug;
 	@Column(name="routine")
-	private Routine routine;
+	private ModelRoutine routine;
 	
-	public PlugsRoutines(){
+	public ModelPlugsRoutines(){
 		super();
 	}
 
-	public Plug getPlug() {
+	public ModelPlug getPlug() {
 		return plug;
 	}
 
-	public void setPlug(Plug plug) {
+	public void setPlug(ModelPlug plug) {
 		this.plug = plug;
 	}
 
-	public Routine getRoutine() {
+	public ModelRoutine getRoutine() {
 		return routine;
 	}
 
-	public void setRoutine(Routine routine) {
+	public void setRoutine(ModelRoutine routine) {
 		this.routine = routine;
 	}
 	

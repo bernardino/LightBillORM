@@ -1,4 +1,4 @@
-package dei.gps.model;
+package pt.uc.dei.gps.lightbill.model;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
@@ -11,7 +11,7 @@ import com.activeandroid.annotation.Table;
  *
  */
 @Table(name="Plugs")
-public class Plug extends Model {
+public class ModelPlug extends Model {
 	@Column(name="name")
 	private String name;
 	@Column(name="deviceTypeId")
@@ -35,7 +35,7 @@ public class Plug extends Model {
 	@Column(name="fixedCostId")
 	private int fixedCostId;
 	
-	public Plug() {
+	public ModelPlug() {
 		super();
 	}
 

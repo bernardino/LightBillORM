@@ -1,4 +1,4 @@
-package dei.gps.model;
+package pt.uc.dei.gps.lightbill.model;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import com.activeandroid.annotation.Table;
  *
  */
 @Table(name="Routines")
-public class Routine extends Model {
+public class ModelRoutine extends Model {
 	@Column(name="name", unique=true)
 	private String name;
 	@Column(name="description")
@@ -36,9 +36,9 @@ public class Routine extends Model {
 	@Column(name="active")
 	private int active;
 	@Column(name="repetition")
-	private Repetition repetition;
+	private ModelRepetition repetition;
 
-	public Routine() {
+	public ModelRoutine() {
 		super();
 	}
 	
@@ -118,23 +118,23 @@ public class Routine extends Model {
 		this.active = active;
 	}
 	
-	public Repetition getRepetition() {
+	public ModelRepetition getRepetition() {
 		return repetition;
 	}
 
-	public void setRepetition(Repetition repetition) {
+	public void setRepetition(ModelRepetition repetition) {
 		this.repetition = repetition;
 	}
 
-	public void addPlug(Plug p) throws java.lang.Exception {
+	public void addPlug(ModelPlug p) throws java.lang.Exception {
 		/* Get all the Plugs of this routine */
-		List<PlugsRoutines> list = getMany(PlugsRoutines.class, "routine");
+		List<ModelPlugsRoutines> list = getMany(ModelPlugsRoutines.class, "routine");
 		
-		for(PlugsRoutines pr:list)
+		for(ModelPlugsRoutines pr:list)
 			if(pr.getPlug() == p)
 				return;
 		
-		PlugsRoutines pr = new PlugsRoutines();
+		ModelPlugsRoutines pr = new ModelPlugsRoutines();
 		pr.save();
 		pr.setPlug(p);
 		pr.setRoutine(this);
@@ -143,17 +143,17 @@ public class Routine extends Model {
 
 	}
 
-	public List<Plug> getPlugs() {
-		List<PlugsRoutines> list = getMany(PlugsRoutines.class, "routine");
+	public List<ModelPlug> getPlugs() {
+		List<ModelPlugsRoutines> list = getMany(ModelPlugsRoutines.class, "routine");
 		
-		List<Plug> plugs = new ArrayList<Plug>();
-		for(PlugsRoutines pr:list)
+		List<ModelPlug> plugs = new ArrayList<ModelPlug>();
+		for(ModelPlugsRoutines pr:list)
 			plugs.add(pr.getPlug());
 
 		return plugs;
 	}
 	
-	public List<RoutineException> getExceptions() {
-		return getMany(RoutineException.class, "routine");
+	public List<ModelRoutineException> getExceptions() {
+		return getMany(ModelRoutineException.class, "routine");
 	}
 }

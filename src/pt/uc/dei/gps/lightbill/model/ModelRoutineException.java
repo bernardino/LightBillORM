@@ -1,4 +1,4 @@
-package dei.gps.model;
+package pt.uc.dei.gps.lightbill.model;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -14,9 +14,9 @@ import com.activeandroid.annotation.Table;
  *
  */
 @Table(name="Exceptions")
-public class RoutineException extends Model {
+public class ModelRoutineException extends Model {
 	@Column(name="routine")
-	private Routine routine;
+	private ModelRoutine routine;
 	@Column(name="startTime")
 	private Time startTime;
 	@Column(name="endTime")
@@ -28,15 +28,15 @@ public class RoutineException extends Model {
 	@Column(name="offInterval")
 	private int offInterval;
 
-	public RoutineException() {
+	public ModelRoutineException() {
 		super();
 	}
 	
-	public Routine getRoutine() {
+	public ModelRoutine getRoutine() {
 		return this.routine;
 	}
 
-	public void setRoutine(Routine routine) {
+	public void setRoutine(ModelRoutine routine) {
 		this.routine = routine;
 	}
 
