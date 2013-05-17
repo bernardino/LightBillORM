@@ -34,6 +34,8 @@ public class ModelPlug extends Model {
 	private int tariffId;
 	@Column(name="fixedCostId")
 	private int fixedCostId;
+	@Column(name="consumption")
+	private float consumption;
 	
 	public ModelPlug() {
 		super();
@@ -127,4 +129,11 @@ public class ModelPlug extends Model {
 		this.fixedCostId = fixedCostId;
 	}
 
+	public float getConsumption() {
+		return consumption;
+	}
+
+	public void setConsumption(float consumption) {
+		this.consumption = consumption;
+	}
 }
