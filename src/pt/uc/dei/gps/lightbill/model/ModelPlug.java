@@ -36,6 +36,10 @@ public class ModelPlug extends Model {
 	private float fixedCostId;
 	@Column(name="consumption")
 	private float consumption;
+	@Column(name="onInterval")
+	private int onInterval;
+	@Column(name="offInterval")
+	private int offInterval;
 	
 	public ModelPlug() {
 		super();
@@ -136,4 +140,21 @@ public class ModelPlug extends Model {
 	public void setConsumption(float consumption) {
 		this.consumption = consumption;
 	}
+
+	public int getOnInterval() {
+		return onInterval;
+	}
+
+	public void setOnInterval(int onInterval) {
+		this.onInterval = onInterval;
+	}
+
+	public int getOffInterval() {
+		return offInterval;
+	}
+
+	public void setOffInterval(int offInterval) {
+		this.offInterval = offInterval;
+	}
+	
 }

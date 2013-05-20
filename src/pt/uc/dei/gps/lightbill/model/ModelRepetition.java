@@ -6,7 +6,12 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-
+/**
+ * <b>Repetitions</b> table representation object.
+ * 
+ * @author bernardino
+ *
+ */
 @Table(name="Repetitions")
 public class ModelRepetition extends Model {
 	@Column(name="days")
@@ -25,42 +30,42 @@ public class ModelRepetition extends Model {
 	}
 
 	public boolean hasMonday() {
-		if((this.days & RepetitionsUtils.MONDAY) == 1)
+		if((this.days & RepetitionsUtils.MONDAY) == RepetitionsUtils.MONDAY)
 			return true;
 		return false;
 	}
 	
 	public boolean hasTuesday() {
-		if((this.days & RepetitionsUtils.TUESDAY) == 1)
+		if((this.days & RepetitionsUtils.TUESDAY) == RepetitionsUtils.TUESDAY)
 			return true;
 		return false;
 	}
 	
 	public boolean hasWednesday() {
-		if((this.days & RepetitionsUtils.WEDNESDAY) == 1)
+		if((this.days & RepetitionsUtils.WEDNESDAY) == RepetitionsUtils.WEDNESDAY)
 			return true;
 		return false;
 	}
 	
 	public boolean hasThursday() {
-		if((this.days & RepetitionsUtils.THURSDAY) == 1)
+		if((this.days & RepetitionsUtils.THURSDAY) == RepetitionsUtils.THURSDAY)
 			return true;
 		return false;
 	}
 	public boolean hasFriday() {
-		if((this.days & RepetitionsUtils.FRIDAY) == 1)
+		if((this.days & RepetitionsUtils.FRIDAY) == RepetitionsUtils.FRIDAY)
 			return true;
 		return false;
 	}
 	
 	public boolean hasSaturday() {
-		if((this.days & RepetitionsUtils.SATURDAY) == 1)
+		if((this.days & RepetitionsUtils.SATURDAY) == RepetitionsUtils.SATURDAY)
 			return true;
 		return false;
 	}
 	
 	public boolean hasSunday() {
-		if((this.days & RepetitionsUtils.SUNDAY) == 1)
+		if((this.days & RepetitionsUtils.SUNDAY) == RepetitionsUtils.SUNDAY)
 			return true;
 		return false;
 	}
