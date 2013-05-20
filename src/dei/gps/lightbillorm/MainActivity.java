@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 		//getApplicationContext().deleteDatabase("LightBill2.db");
 		
 		/* Vai buscar uma rotina, e se nao houver nenhuma cria */
+		
 		r = new Select().from(ModelRoutine.class).executeSingle();
 		if(r==null)
 			r = new ModelRoutine();
