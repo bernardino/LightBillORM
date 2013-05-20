@@ -33,7 +33,7 @@ public class ModelPlug extends Model {
 	@Column(name="tariffId")
 	private int tariffId;
 	@Column(name="fixedCostId")
-	private int fixedCostId;
+	private float fixedCostId;
 	@Column(name="consumption")
 	private float consumption;
 	
@@ -121,11 +121,11 @@ public class ModelPlug extends Model {
 		this.tariffId = tariffId;
 	}
 
-	public int getFixedCostId() {
+	public float getFixedCostId() {
 		return fixedCostId;
 	}
 
-	public void setFixedCostId(int fixedCostId) {
+	public void setFixedCostId(float fixedCostId) {
 		this.fixedCostId = fixedCostId;
 	}
 

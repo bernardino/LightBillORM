@@ -23,13 +23,14 @@ import com.activeandroid.query.Select;
 public class MainActivity extends Activity {
 	ModelRoutine r;
 	int cenas=0;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//getApplicationContext().deleteDatabase("LightBill.db");
-		getApplicationContext().deleteDatabase("LightBill2.db");
+		getApplicationContext().deleteDatabase("LightBill.db");
+		//getApplicationContext().deleteDatabase("LightBill2.db");
 		
 		/* Vai buscar uma rotina, e se nao houver nenhuma cria */
 		r = new Select().from(ModelRoutine.class).executeSingle();

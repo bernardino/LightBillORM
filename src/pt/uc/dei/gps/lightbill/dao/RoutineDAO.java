@@ -22,6 +22,7 @@ public class RoutineDAO {
 	public ModelRoutine createRoutine() {
 		ModelRoutine r = new ModelRoutine();
 		/*TODO: No r.save()? And save through update method? */
+		/*TODO: Verify overlaping routines! */
 		r.save();
 		
 		return r;
